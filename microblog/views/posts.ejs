@@ -1,0 +1,12 @@
+<% posts.forEach(function (post,index) { %>
+    <div>
+        <h1><a href="/u/<%= post.user%>"><%= post.user%></a></h1>
+        <p><samll><%= post.time %></samll></p>
+        <p><%= post.post %>
+            <% if(locals.user){ %>
+            <% if(locals.user.name === post.user){ %>
+        <a href="/delArticle/<%= post.oid %>">del</a>
+            <% }} %>
+        </p>
+    </div>
+<% }) %>
