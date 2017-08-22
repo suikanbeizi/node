@@ -58,7 +58,7 @@ User.get = function get(username ,callback) {
                 mongodb.close();
                 if(doc){
                     //封装文档为 User 对象
-                    var user = new User(doc)
+                    var user = new User(doc);
                     callback(err,user);
                 }else{
                     callback(err,null);
@@ -67,3 +67,22 @@ User.get = function get(username ,callback) {
         })
     })
 };
+
+User.update = function update(username ,newUserBasic,callback) {
+    mongodb.open(function (err,db) {
+       if(err){
+           return callback(err);
+       }
+       db.collection('users',function (err,collection) {
+           if(err){
+               mongodb.close();
+               return callback(err);
+           }
+           collection.update({name:username},{$set:newUserBasic},function (err,doc) {
+               mongodb.close();
+               callback(err,doc);
+           });
+       });
+    });
+};
+

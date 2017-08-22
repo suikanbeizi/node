@@ -1,4 +1,4 @@
-
+<div style="width: 300px;margin: 0 auto;padding-top: 50px; ">
     <form class="am-form" method="post" >
         <fieldset >
             <div class="am-form-group">
@@ -15,10 +15,14 @@
                 <input type="password" id="doc-ds-ipt-1" class="am-form-field" placeholder="Again password" name="password1">
             </div>
             <div>
-                <span class="passwordErr"></span>
+                <span class="err">
+                    <% if(passwordError){%>
+                        <%= passwordError%>
+                    <% } %>
+                </span>
             </div>
 
             <button type="submit" class="am-btn am-btn-primary">reg</button>
         </fieldset>
     </form>
-
+</div>

@@ -1,8 +1,41 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.error{
+  color: red;
+  font-size: 12px;
+}
+.basic{
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.favicon{
+  width:120px !important;
+  height:117px !important;
+  border: 1px solid #eeeeee !important;
+  border-radius: 50%;
+  display: inline !important;
+  left: 140px !important;
+}
+.faviconBtn{
+  width:120px;
+  height: 117px;
+  border-radius: 50%;
+  background-size: 100%;
+}
+.am-dropdown{
+  width: 49%;
+}
+.am-dropdown select{
+  width: 100%;
+  height: 37px;
+  color: #999;
 }
 
-a {
-  color: #00B7FF;
+.city select{
+  width: 100%;
+  height: 37px;
+  color: #999;
+}
+.faviconImg{
+  width:20px;
+  height: 20px;
 }

@@ -1,0 +1,89 @@
+<div class="basic">
+    <form action="/putBasic" method="post" enctype="multipart/form-data">
+        <div class="am-form-group am-form-file" >
+            <button type="button" class="am-btn am-btn-default am-btn-sm faviconBtn" >
+                上传头像</button>
+            <div class="faviconImg"></div>
+            <input type="file" multiple name="favicon" class="favicon" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="change(this);">
+        </div>
+        <div class="am-form-group">
+            <input type="text" id="doc-ds-ipt-1" class="am-form-field username" placeholder="姓名" name="username">
+        </div>
+        <div class="am-form-group">
+            <div class="am-dropdown " data-am-dropdown>
+                <select name="edu" id="" class="edu">
+                    <option value="">最高学历</option>
+                    <option value="本科">本科</option>
+                    <option value="硕士">硕士</option>
+                    <option value="博士">博士</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div class="am-dropdown " data-am-dropdown>
+                <select name="workTime" id="" class="workTime">
+                    <option value="">工作年限</option>
+                    <option value="应届毕业生">应届毕业生</option>
+                    <option value="1年">1年</option>
+                    <option value="2年">2年</option>
+                    <option value="3年">3年</option>
+                    <option value="4年">4年</option>
+                    <option value="5年">5年</option>
+                    <option value="5年以上">5年以上</option>
+                </select>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <input type="tel" id="doc-ds-ipt-1" class="am-form-field tel" placeholder="输入手机号" name="tel">
+        </div>
+        <div class="am-form-group">
+            <input type="email" id="doc-ds-ipt-1" class="am-form-field email" placeholder="邮箱" name="email">
+        </div>
+        <div class="city am-form-group">
+            <select name="city" id="">
+                <option value="北京">北京</option>
+                <option value="上海">上海</option>
+                <option value="广州">广州</option>
+                <option value="杭州">杭州</option>
+                <option value="深圳">深圳</option>
+                <option value="成都">成都</option>
+                <option value="西安">西安</option>
+                <option value="南京">南京</option>
+                <option value="厦门">厦门</option>
+            </select>
+        </div>
+        <div>
+            <span class="error">
+
+            </span>
+        </div>
+        <div class="am-form-group">
+            <button type="submit" class="am-btn am-btn-primary sub">下一步：继续完善职业信息</button>
+        </div>
+    </form>
+</div>
+<script src="/javascripts/jquery-3.2.1.min.js"></script>
+<script>
+    $('.sub').click(function () {
+       if($('.username').val() === ''){
+           $('.error').html('姓名不能为空');
+           return false;
+       }
+       if($('.edu').val() === ''){
+           $('.error').html('学历不能为空');
+           return false;
+       }
+       if($('.workTime').val() === ''){
+           $('.error').html('工作时间不能为空');
+           return false;
+       }
+       if($('.tel').val() === ''){
+           $('.error').html('手机不能为空');
+           return false;
+       }
+       if($('.email').val() === ''){
+           $('.error').html('邮箱不能为空');
+           return false;
+       }
+
+    });
+</script>

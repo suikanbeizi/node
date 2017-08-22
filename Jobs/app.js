@@ -8,9 +8,10 @@ var settings = require('./Setting.js');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var expressLayouts = require('express-ejs-layouts');//layout
+var fs = require('fs');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 
 var app = express();
 
@@ -26,7 +27,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
-
 //session
 app.use(session({
     secret: settings.cookieSecret,
@@ -35,14 +35,16 @@ app.use(session({
         url: 'mongodb://localhost/dataManger'
     })
 }));
-// app.use(function(req, res, next){
-//     res.locals.user = req.session.user;
-//     res.locals.error = error.length ? error : null;
-//     res.locals.success = success ? success : null;
-//     next();
-// });
+app.use(function(req, res, next){
+    res.locals.user = req.session.user;
+    res.locals.passwordError = req.session.passwordError;
+    res.locals.nameError = req.session.nameError;
+    res.locals.faviconPath = req.session.faviconPath;
+    res.locals.basicError = req.session.basicError;
+    next();
+});
 app.use('/', index);
-app.use('/users', users);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,7 +61,9 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-   res.render('index',{title:'404'});
+   // res.render('index',{title:'404'});
+    res.render('error',{title:"error"});
+
 });
 
 module.exports = app;

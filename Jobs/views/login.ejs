@@ -15,6 +15,13 @@
                     <input type="checkbox"> remember password
                 </label>
             </div>
+            <div>
+                <span class="error">
+                    <% if(nameError){%>
+                    <%= nameError%>
+                    <% } %>
+                </span>
+            </div>
 
             <button type="submit" class="am-btn am-btn-primary">login</button>
         </fieldset>
